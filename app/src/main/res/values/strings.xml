@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Music Player</string>
+    <string name="Artist_1">Queen</string>
+    <string name="Song_1">Under Pressure</string>
+    <string name="Artist_2">Scorpions</string>
+    <string name="Song_2">Wind of Change</string>
+    <string name="Artist_3">Pink Floyd</string>
+    <string name="Song_3">Comfortably Numb</string>
+    <string name="Artist_4">Metallica</string>
+    <string name="Song_4">Nothing else Matters</string>
+    <string name="Artist_5">Alice Cooper</string>
+    <string name="Song_5">Poison</string>
+    <string name="Artist_6">Linkin Park</string>
+    <string name="Song_6">One Step Closer</string>
+    <string name="Artist_7">Rage Against the Machine</string>
+    <string name="Song_7">Bulls on Parade</string>
+
+
 </resources>

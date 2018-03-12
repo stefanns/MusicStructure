@@ -12,7 +12,7 @@ import java.io.Serializable;
  * Created by Stefan on 3/4/2018.
  */
 
-public class Song implements Serializable {
+public class Song implements Parcelable {
     //string for artist
     private String mArtist;
     //string for song name
@@ -33,6 +33,25 @@ public class Song implements Serializable {
     }
 
 
+    protected Song(Parcel in) {
+        mArtist = in.readString();
+        mSongName = in.readString();
+        mSongLength = in.readString();
+        mImage = in.readParcelable(Bitmap.class.getClassLoader());
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel in) {
+            return new Song(in);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
+
     //get artist
     public String getArtist() {
         return mArtist;
@@ -48,9 +67,22 @@ public class Song implements Serializable {
         return mSongLength;
     }
 
+    //get image
     public Bitmap getImage() {
         return mImage;
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(mArtist);
+        parcel.writeString(mSongName);
+        parcel.writeString(mSongLength);
+        parcel.writeParcelable(mImage, i);
+    }
 }

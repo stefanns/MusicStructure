@@ -3,8 +3,6 @@ package com.example.android.musicplayer;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 /**
  * Created by Stefan on 3/4/2018.
@@ -53,12 +49,14 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         holder.playPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // to pass the info to the player activity from another layout than main activity
+                // send ata to player activity
                 Intent musicIntent = new Intent(context, PlayerActivity.class);
-                musicIntent.putExtra("artist name", songs.get(position).getArtist());
-                musicIntent.putExtra("song name", songs.get(position).getSongName());
+               // musicIntent.putExtra("artist name", songs.get(position).getArtist());
+               // musicIntent.putExtra("song name", songs.get(position).getSongName());
+                musicIntent.putExtra("song length", songs.get(position).getSongLength());
                 //send byte array
-                musicIntent.putExtra("artist image", byteArray);
+               // musicIntent.putExtra("artist image", byteArray);
+                musicIntent.putParcelableArrayListExtra("songs",songs);
                 context.startActivity(musicIntent);
             }
         });

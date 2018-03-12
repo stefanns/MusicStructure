@@ -8,23 +8,28 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/player_artist_image_view"
-        style="@style/player_image" />
+        style="@style/player_image"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp" />
 
     <TextView
         android:id="@+id/player_song_text_view"
         style="@style/song_player"
-        android:layout_below="@id/player_artist_image_view" />
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/player_artist_image_view" />
 
     <TextView
         android:id="@+id/player_artist_text_view"
         style="@style/artist_player"
-        android:layout_below="@id/player_song_text_view" />
+        android:layout_below="@id/player_song_text_view"
+        android:layout_toRightOf="@id/player_artist_image_view" />
 
     <LinearLayout
         android:id="@+id/player_buttons_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/player_artist_text_view"
+        android:layout_toRightOf="@id/player_artist_image_view"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -49,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/player_buttons_layout"
+        android:layout_toRightOf="@id/player_artist_image_view"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:paddingTop="30dp"

@@ -3,11 +3,12 @@ package com.example.android.musicplayer;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class PlayerActivity extends AppCompatActivity {
     TextView artistTextView;
@@ -37,13 +38,24 @@ public class PlayerActivity extends AppCompatActivity {
     //get intents from previous activity
     public void getIntents() {
         Intent intent = getIntent();
+        int position = intent.getIntExtra("position", 0);
+        ArrayList<Song> xyz = intent.getParcelableArrayListExtra("songs");
+        /*
+         get artist name and set to to TextView
         String artistName = intent.getStringExtra("artist name");
-        artistTextView.setText(artistName);
+        */
+        artistTextView.setText(xyz.get(position).getArtist());
+        /*
+         get song name and set to to TextView
         String songName = intent.getStringExtra("song name");
-        songTextView.setText(songName);
+        */
+        songTextView.setText(xyz.get(position).getSongName());
+        /* get image as byte array, decode and set to  ImageView
         byte[] artistImage = intent.getByteArrayExtra("artist image");
         Bitmap compressedBitmap = BitmapFactory.decodeByteArray(artistImage, 0, artistImage.length);
-        artistImageView.setImageBitmap(compressedBitmap);
+       */
+        artistImageView.setImageBitmap(xyz.get(position).getImage());
+
     }
 
 
