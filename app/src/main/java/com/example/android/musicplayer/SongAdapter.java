@@ -3,6 +3,7 @@ package com.example.android.musicplayer;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -34,29 +34,24 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         return vh;
     }
 
+
     @Override
     public void onBindViewHolder(SongViewHolder holder, final int position) {
         // set the data in items
         holder.artistName.setText(songs.get(position).getArtist());
         holder.songName.setText(songs.get(position).getSongName());
-        holder.artistImage.setImageBitmap(songs.get(position).getImage());
-        //get uncompressed bitmap
-        Bitmap uncompressed = songs.get(position).getImage();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        //compress bitmap to 50% quality
-        uncompressed.compress(Bitmap.CompressFormat.JPEG, 50, stream);
-        final byte[] byteArray = stream.toByteArray();
+        Bitmap myBitmap = BitmapFactory.decodeResource(context.getResources(), songs.get(position).getImage());
+        holder.artistImage.setImageBitmap(myBitmap);
+        // play and go the PlayerActivity
         holder.playPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // send ata to player activity
+                // send data to player activity
                 Intent musicIntent = new Intent(context, PlayerActivity.class);
-               // musicIntent.putExtra("artist name", songs.get(position).getArtist());
-               // musicIntent.putExtra("song name", songs.get(position).getSongName());
-                musicIntent.putExtra("song length", songs.get(position).getSongLength());
-                //send byte array
-               // musicIntent.putExtra("artist image", byteArray);
-                musicIntent.putParcelableArrayListExtra("songs",songs);
+                //send the ArrayList
+                musicIntent.putParcelableArrayListExtra("songs", songs);
+                //send the position to correctly display views
+                musicIntent.putExtra("position", position);
                 context.startActivity(musicIntent);
             }
         });
@@ -75,7 +70,6 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         TextView songName;
         ImageView artistImage;
         ImageView playPause;
-        ImageView forward;
 
         public SongViewHolder(View itemView) {
             super(itemView);
@@ -84,7 +78,6 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
             songName = (TextView) itemView.findViewById(R.id.song_title_text_view);
             artistImage = (ImageView) itemView.findViewById(R.id.artist_image_view);
             playPause = (ImageView) itemView.findViewById(R.id.play_pause);
-            forward = (ImageView) itemView.findViewById(R.id.player_forward);
         }
     }
 }

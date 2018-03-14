@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Music Player</string>
+    <!-- App titles -->
+    <string name="app_name">Music</string>
+    <string name="Songs">Songs</string>
+    <string name="Playing">Now Playing</string>
+    <!-- artist and song name -->
     <string name="Artist_1">Queen</string>
     <string name="Song_1">Under Pressure</string>
     <string name="Artist_2">Scorpions</string>
@@ -14,6 +18,9 @@
     <string name="Song_6">One Step Closer</string>
     <string name="Artist_7">Rage Against the Machine</string>
     <string name="Song_7">Bulls on Parade</string>
+    <!--This is for song starting point, it should be a date
+    and it will be changed to count till the song length -->
+    <string name="start_counter">0:00</string>
 
 
 </resources>
