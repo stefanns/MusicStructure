@@ -43,7 +43,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         Bitmap myBitmap = BitmapFactory.decodeResource(context.getResources(), songs.get(position).getImage());
         holder.artistImage.setImageBitmap(myBitmap);
         // play and go the PlayerActivity
-        holder.playPause.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // send data to player activity
@@ -69,15 +69,15 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         TextView artistName;
         TextView songName;
         ImageView artistImage;
-        ImageView playPause;
+        View cardView;
 
         public SongViewHolder(View itemView) {
             super(itemView);
             //get views
-            artistName = (TextView) itemView.findViewById(R.id.artist_text_view);
-            songName = (TextView) itemView.findViewById(R.id.song_title_text_view);
-            artistImage = (ImageView) itemView.findViewById(R.id.artist_image_view);
-            playPause = (ImageView) itemView.findViewById(R.id.play_pause);
+            artistName = itemView.findViewById(R.id.artist_text_view);
+            songName = itemView.findViewById(R.id.song_title_text_view);
+            artistImage = itemView.findViewById(R.id.artist_image_view);
+            cardView = itemView.findViewById(R.id.list_card);
         }
     }
 }

@@ -20,49 +20,49 @@ public class Song implements Parcelable {
         }
     };
     //string for artist
-    private String mArtist;
+    private String artist;
     //string for song name
-    private String mSongName;
+    private String songName;
     //string for song length
-    private String mSongLength;
+    private String songLength;
     //image for artist
-    private int mSongID;
+    private int songID;
 
 
     //constructor
-    public Song(String songName, String artist, String songLength, int songID)
+    public Song(String song_name, String artist_, String song_length, int song_ID)
 
     {
-        mArtist = artist;
-        mSongName = songName;
-        mSongLength = songLength;
-        mSongID = songID;
+        artist = artist_;
+        songName = song_name;
+        songLength = song_length;
+        songID = song_ID;
     }
 
     protected Song(Parcel in) {
-        mArtist = in.readString();
-        mSongName = in.readString();
-        mSongLength = in.readString();
-        mSongID = in.readInt();
+        artist = in.readString();
+        songName = in.readString();
+        songLength = in.readString();
+        songID = in.readInt();
     }
 
     //get artist
     public String getArtist() {
-        return mArtist;
+        return artist;
     }
 
     //get song name
     public String getSongName() {
-        return mSongName;
+        return songName;
     }
 
     //get song length
     public String getSongLength() {
-        return mSongLength;
+        return songLength;
     }
 
     public int getImage() {
-        return mSongID;
+        return songID;
     }
 
 
@@ -73,9 +73,9 @@ public class Song implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(mArtist);
-        parcel.writeString(mSongName);
-        parcel.writeString(mSongLength);
-        parcel.writeInt(mSongID);
+        parcel.writeString(artist);
+        parcel.writeString(songName);
+        parcel.writeString(songLength);
+        parcel.writeInt(songID);
     }
 }

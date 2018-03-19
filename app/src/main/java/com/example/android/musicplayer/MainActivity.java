@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         songs.add(new Song(getResources().getString(R.string.Song_7),
                 getResources().getString(R.string.Artist_7),
                 "4:10", R.drawable.rageagainst_image));
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         SongAdapter song = new SongAdapter(this, songs);

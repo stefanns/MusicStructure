@@ -14,7 +14,10 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="actionBarStyle">@style/MyActionBar</item>
         <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <!-- custom drawable for up button -->
+        <item name="android:homeAsUpIndicator">@drawable/back_button</item>
     </style>
+
     <!-- style for the action bar backgrounds -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
@@ -98,7 +101,7 @@
         <item name="android:layout_marginRight">@dimen/player_button</item>
         <item name="android:padding">@dimen/player_button</item>
     </style>
-  <!--style for counter views-->
+    <!--style for counter views-->
     <style name="counter_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
